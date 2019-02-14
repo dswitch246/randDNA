@@ -1,17 +1,27 @@
 string randDNA ( int seed, string l, int num)
 
 {
-	 std::random_dna rd;
+	 
     	 std::mt19937 eng1(seed);
-	 std::normal_int_distribution<> norm(min, max);
+	 
 
-	int min = 1;
-	int max= 4;
+	int min = 0;
+	int max= l.size()-1;
 
-	for(int n=1 ;  n < 5 ; n++) 
+	std::uniform_int_distribution<> unifrm(min, max);
+		
+
+	string dseq="";
+	for(int n=1 ; n <= num; n++) 
   	{
-        	cout<<norm(l)<<" ";
+        	dseq+=unifrm(eng1);// l
+		
    	}
+
+	return dseq;
+}
+
+	
 
 
 	
